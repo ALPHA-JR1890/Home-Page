@@ -77,35 +77,31 @@
         allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
     </iframe>
 
-    <script>
-        // JavaScript for the countdown timer
-        function startCountdown(targetDate) {
-            const countdownElement = document.getElementById('countdown');
+   <script>
+    // JavaScript for live clock with date and time
+    function startClock() {
+        const clockElement = document.getElementById('countdown'); // Reusing the 'countdown' element
 
-            function updateCountdown() {
-                const now = new Date().getTime();
-                const distance = targetDate - now;
-
-                if (distance < 0) {
-                    countdownElement.innerHTML = "Time's up!";
-                    return;
-                }
-
-                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-                countdownElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
-            }
-
-            setInterval(updateCountdown, 1000);
-            updateCountdown(); // Initialize countdown display
+        function updateClock() {
+            const now = new Date();
+            const options = { 
+                weekday: 'long', 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric', 
+                hour: '2-digit', 
+                minute: '2-digit', 
+                second: '2-digit' 
+            };
+            const formattedDateTime = now.toLocaleDateString('en-US', options);
+            clockElement.innerHTML = formattedDateTime;
         }
 
-        // Example: Set target date to 10 days from now
-        const targetDate = new Date().getTime() + (10 * 24 * 60 * 60 * 1000);
-        startCountdown(targetDate);
-    </script>
+        setInterval(updateClock, 1000);
+        updateClock(); // Initialize clock display
+    }
+
+    startClock();
+</script>
 </body>
 </html>
