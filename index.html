@@ -19,9 +19,27 @@
             width: 15%; /* Full width for both iframes */
             flex: 1; /* Split the available space equally */
         }
+        /* Countdown bubble styling */
+        #countdown {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: #f0f8ff;
+            border: 2px solid #3498db;
+            border-radius: 15px;
+            padding: 10px 20px;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            color: #333;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
     </style>
 </head>
 <body>
+    <!-- Countdown Timer -->
+    <div id="countdown">Loading...</div>
+
     <!-- Embed bio.link -->
     <iframe 
         class="bio-link" 
@@ -35,5 +53,37 @@
         src="https://open.spotify.com/embed/playlist/13lm5zxMCWKxu5gOfM6nTa?utm_source=generator" 
         allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
     </iframe>
+
+    <script>
+        // JavaScript for the countdown timer
+        function startCountdown(targetDate) {
+            const countdownElement = document.getElementById('countdown');
+
+            function updateCountdown() {
+                const now = new Date().getTime();
+                const distance = targetDate - now;
+
+                if (distance < 0) {
+                    countdownElement.innerHTML = "The time has arrived!";
+                    clearInterval(interval);
+                    return;
+                }
+
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                countdownElement.innerHTML = `Countdown: ${days}d ${hours}h ${minutes}m ${seconds}s`;
+            }
+
+            const interval = setInterval(updateCountdown, 1000);
+            updateCountdown(); // Run immediately to avoid 1-second delay
+        }
+
+        // Set target date: May 22, 12:05 PM
+        const targetDate = new Date('May 22, 2025 12:05:00').getTime();
+        startCountdown(targetDate);
+    </script>
 </body>
 </html>
