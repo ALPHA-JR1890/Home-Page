@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Website</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            background: url('your-background.gif') no-repeat center center fixed;
+            background-size: cover;
+            position: relative;
+        }
+        iframe {
+            border: none;
+            width: 50%; /* Adjust size as needed */
+            height: 300px; /* Adjust height as needed */
+            position: absolute;
+        }
+        .bio-link {
+            top: 0; /* Position Bio Link at the very top-left */
+            left: 0; 
+        }
+        .spotify {
+            bottom: 0; /* Position Spotify at the very bottom-left */
+            left: 0; 
+        }
+    </style>
+</head>
+<body>
+    <!-- Embed bio.link -->
+    <iframe 
+        class="bio-link" 
+        src="https://bio.link/alpha_jr" 
+        title="Bio Link">
+    </iframe>
+
+    <!-- Embed Spotify playlist -->
+    <iframe 
+        class="spotify" 
+        src="https://open.spotify.com/embed/playlist/13lm5zxMCWKxu5gOfM6nTa?utm_source=generator" 
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+    </iframe>
+</body>
+</html>
