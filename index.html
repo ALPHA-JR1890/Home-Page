@@ -10,25 +10,14 @@
             padding: 0;
             height: 100vh;
             display: flex;
-            justify-content: flex-start;
-            align-items: flex-start;
-            background: url('') no-repeat center center fixed;
+            flex-direction: column; /* Stack elements vertically */
+            background: url('your-background.gif') no-repeat center center fixed;
             background-size: cover;
-            position: relative;
         }
         iframe {
             border: none;
-            width: 15%; /* Adjust size as needed */
-            height: 50%; /* Adjust height as needed */
-            position: absolute;
-        }
-        .bio-link {
-            top: 0; /* Position Bio Link at the very top-left */
-            left: 0; 
-        }
-        .spotify {
-            bottom: 0; /* Position Spotify at the very bottom-left */
-            left: 0; 
+            width: 15%; /* Full width for both iframes */
+            flex: 1; /* Split the available space equally */
         }
     </style>
 </head>
