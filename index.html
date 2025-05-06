@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Pgae</title>
+    <title>Home Page</title>
     <!-- Add favicon -->
     <link rel="icon" type="image/png" href="Jlogo.png">
     <style>
@@ -83,5 +83,29 @@
             const countdownElement = document.getElementById('countdown');
 
             function updateCountdown() {
-                const now*
-
+                const now = new Date().getTime();
+                const distance = targetDate - now;
+
+                if (distance < 0) {
+                    countdownElement.innerHTML = "Time's up!";
+                    return;
+                }
+
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                countdownElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+            }
+
+            setInterval(updateCountdown, 1000);
+            updateCountdown(); // Initialize countdown display
+        }
+
+        // Example: Set target date to 10 days from now
+        const targetDate = new Date().getTime() + (10 * 24 * 60 * 60 * 1000);
+        startCountdown(targetDate);
+    </script>
+</body>
+</html>
