@@ -34,11 +34,32 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             z-index: 1000;
         }
+        /* "Things to do" text box styling */
+        #things-to-do {
+            position: fixed;
+            top: 80px;
+            right: 20px;
+            width: 200px;
+            height: 100px;
+            background-color: #ffffff;
+            border: 2px solid #3498db;
+            border-radius: 10px;
+            padding: 10px;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            color: #333;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            resize: none; /* Prevent resizing of the text box */
+            z-index: 1000;
+        }
     </style>
 </head>
 <body>
     <!-- Countdown Timer -->
     <div id="countdown">Loading...</div>
+
+    <!-- Editable "Things to do" Text Box -->
+    <textarea id="things-to-do" placeholder="Things to do..."></textarea>
 
     <!-- Embed bio.link -->
     <iframe 
